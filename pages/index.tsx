@@ -3,6 +3,7 @@ import React from "react";
 import db from '../db.json';
 import QuizContainer from "../src/components/QuizContainer";
 import QuizBackground from "../src/components/QuizBackground";
+import QuizLogo from "../src/components/QuizLogo";
 import Widget from "../src/components/Widget";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
@@ -54,6 +55,7 @@ export default function Home() {
         <GlobalStyle/>
         <QuizBackground backgroundImagem={db.bg}>
           <QuizContainer>
+            <QuizLogo/>
             <Widget>
               <Widget.Header>
                 <h1>{db.title}</h1>

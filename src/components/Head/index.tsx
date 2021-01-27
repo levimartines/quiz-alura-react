@@ -6,6 +6,10 @@ export default function HeadQuiz() {
     <>
       <Head>
         <title>Quiz CSS da Alura</title>
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
         <meta name="title" content="Quiz CSS da Alura"/>
         <meta name="description" content=""/>
 
@@ -13,15 +17,13 @@ export default function HeadQuiz() {
         <meta property="og:url" content="https://metatags.io/"/>
         <meta property="og:title" content="Quiz CSS da Alura"/>
         <meta property="og:description" content=""/>
-        <meta property="og:image"
-              content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"/>
+        <meta property="og:image" content="/og-image.png"/>
 
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="twitter:url" content="https://metatags.io/"/>
         <meta property="twitter:title" content="Quiz CSS da Alura/"/>
         <meta property="twitter:description" content=""/>
-        <meta property="twitter:image"
-              content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"/>
+        <meta property="twitter:image" content="/og-image.png"/>
 
       </Head>
     </>
