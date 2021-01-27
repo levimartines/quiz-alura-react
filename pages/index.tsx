@@ -1,7 +1,11 @@
 import {createGlobalStyle, DefaultTheme, ThemeProvider} from 'styled-components'
 import React from "react";
 import db from '../db.json';
-import App from "./app";
+import QuizContainer from "../src/components/QuizContainer";
+import QuizBackground from "../src/components/QuizBackground";
+import Widget from "../src/components/Widget";
+import Footer from "../src/components/Footer";
+import GitHubCorner from "../src/components/GitHubCorner";
 
 interface ITheme extends DefaultTheme {
   colors: IThemeColors;
@@ -46,7 +50,27 @@ export default function Home() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-        <App/>
+        <QuizBackground backgroundImagem={db.bg}>
+          <QuizContainer>
+            <Widget>
+              <Widget.Header>
+                <h1>{db.title}</h1>
+              </Widget.Header>
+              <Widget.Content>
+                <p>{db.description}</p>
+              </Widget.Content>
+            </Widget>
+
+            <Widget>
+              <Widget.Content>
+                <h1>{db.questions[0].title}</h1>
+                <p>{db.questions[0].description}</p>
+              </Widget.Content>
+            </Widget>
+            <Footer/>
+          </QuizContainer>
+          <GitHubCorner projectUrl='https://github.com/levimartines'/>
+        </QuizBackground>
       </ThemeProvider>
     </>
   );
