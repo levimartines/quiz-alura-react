@@ -13,17 +13,19 @@ export default function HeadQuiz() {
         <meta name="title" content="Quiz CSS da Alura"/>
         <meta name="description" content=""/>
 
+        <meta property="og:site_name" content="Quiz CSS da Alura"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://metatags.io/"/>
+        <meta property="og:url" content="https://quiz-alura-react.levimartines.vercel.app/"/>
         <meta property="og:title" content="Quiz CSS da Alura"/>
         <meta property="og:description" content=""/>
-        <meta property="og:image" content="/og-image.png"/>
+        <meta property="og:image" itemProp="image"
+              content="https://i.ibb.co/fQ73nDh/954a6ffa-58df-4e3f-8bd9-bf2e97130302.png"/>
 
         <meta property="twitter:card" content="summary_large_image"/>
-        <meta property="twitter:url" content="https://metatags.io/"/>
+        <meta property="twitter:url" content="https://quiz-alura-react.levimartines.vercel.app/"/>
         <meta property="twitter:title" content="Quiz CSS da Alura/"/>
         <meta property="twitter:description" content=""/>
-        <meta property="twitter:image" content="/og-image.png"/>
+        <meta property="twitter:image" content="https://i.ibb.co/fQ73nDh/954a6ffa-58df-4e3f-8bd9-bf2e97130302.png"/>
 
       </Head>
     </>
