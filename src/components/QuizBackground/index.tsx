@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const QuizBackground = styled.div<{backgroundImagem: string}>`
+const QuizBackground = styled.div<{ backgroundImagem: string }>`
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -12,7 +12,7 @@ const QuizBackground = styled.div<{backgroundImagem: string}>`
     &:after {
       content: "";
       background-size: cover;
-    background-position: center;
+      background-position: center;
       background-image:
         linear-gradient(transparent, ${({theme}) => theme.colors.mainBg}),
         url(${props => props.backgroundImagem});

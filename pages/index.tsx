@@ -6,6 +6,7 @@ import QuizBackground from "../src/components/QuizBackground";
 import Widget from "../src/components/Widget";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
+import HeadQuiz from "../src/components/Head";
 
 interface ITheme extends DefaultTheme {
   colors: IThemeColors;
@@ -48,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
 export default function Home() {
   return (
     <>
+      <HeadQuiz/>
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
         <QuizBackground backgroundImagem={db.bg}>
