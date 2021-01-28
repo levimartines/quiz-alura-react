@@ -1,5 +1,5 @@
 import {createGlobalStyle, DefaultTheme, ThemeProvider} from 'styled-components'
-import React from "react";
+import React, {FormEvent, useState} from "react";
 import db from '../db.json';
 import QuizContainer from "../src/components/QuizContainer";
 import QuizBackground from "../src/components/QuizBackground";
@@ -8,6 +8,9 @@ import Widget from "../src/components/Widget";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import HeadQuiz from "../src/components/Head";
+import {useRouter} from "next/router";
+import Button from "../src/components/Button";
+import Input from "../src/components/Input";
 
 interface ITheme extends DefaultTheme {
   colors: IThemeColors;
@@ -48,34 +51,46 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function Home() {
-  return (
-    <>
-      <HeadQuiz/>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle/>
-        <QuizBackground backgroundImagem={db.bg}>
-          <QuizContainer>
-            <QuizLogo/>
-            <Widget>
-              <Widget.Header>
-                <h1>{db.title}</h1>
-              </Widget.Header>
-              <Widget.Content>
-                <p>{db.description}</p>
-              </Widget.Content>
-            </Widget>
+  const router = useRouter();
+  const [name, setName] = useState('')
 
-            <Widget>
-              <Widget.Content>
-                <h1>{db.questions[0].title}</h1>
-                <p>{db.questions[0].description}</p>
-              </Widget.Content>
-            </Widget>
-            <Footer/>
-          </QuizContainer>
-          <GitHubCorner projectUrl='https://github.com/levimartines'/>
-        </QuizBackground>
-      </ThemeProvider>
-    </>
+  return (
+      <>
+        <HeadQuiz/>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle/>
+          <QuizBackground backgroundImagem={db.bg}>
+            <QuizContainer>
+              <QuizLogo/>
+              <Widget>
+                <Widget.Header>
+                  <h1>{db.title}</h1>
+                </Widget.Header>
+                <Widget.Content>
+                  <form onSubmit={(event: FormEvent) => {
+                    event.preventDefault();
+                    router.push(`/quiz?name=${name}`).then();
+                  }}>
+                    <Input name='name' placeholder='Seu nome'
+                           onChange={event => setName(event.target.value)} value={name}/>
+                    <Button type='submit' disabled={name.length === 0}>
+                      Jogar
+                    </Button>
+                  </form>
+                </Widget.Content>
+              </Widget>
+
+              <Widget>
+                <Widget.Content>
+                  <h1>Quizes da galera</h1>
+                  <p>lista de quizes:</p>
+                </Widget.Content>
+              </Widget>
+              <Footer/>
+            </QuizContainer>
+            <GitHubCorner projectUrl='https://github.com/levimartines'/>
+          </QuizBackground>
+        </ThemeProvider>
+      </>
   );
 }
